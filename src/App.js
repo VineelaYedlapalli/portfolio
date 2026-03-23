@@ -1,8 +1,8 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 
 const DATA = {
   name: "Vineela Yedlapalli",
-  role: "Software Developer — Backend",
+  role: "Software Developer",
   tagline: "Building scalable backends, clean APIs, and end-to-end systems.",
   email: "yedlapallivineela@gmail.com",
   phone: "+91 9059230799",
@@ -192,28 +192,36 @@ const TABS = ["// projects", "// skills", "// experience", "// certs", "// conta
 // ── Typewriter hook ──
 function useTypewriter(text, speed = 40, start = true) {
   const [displayed, setDisplayed] = useState("");
+
   useEffect(() => {
     if (!start) return;
+
     setDisplayed("");
     let i = 0;
+
     const timer = setInterval(() => {
       if (i < text.length) {
         setDisplayed(text.slice(0, i + 1));
         i++;
-      } else clearInterval(timer);
+      } else {
+        clearInterval(timer);
+      }
     }, speed);
+
     return () => clearInterval(timer);
-  }, [text, start]);
+  }, [text, start, speed]); // ✅ added speed
+
   return displayed;
 }
 
 // ── Terminal line component ──
 function TermLine({ prefix = "$", text, color = "#60f0c0", delay = 0 }) {
   const [visible, setVisible] = useState(false);
+
   useEffect(() => {
     const t = setTimeout(() => setVisible(true), delay);
     return () => clearTimeout(t);
-  }, []);
+  }, [delay]);
   return (
     <div style={{ opacity: visible ? 1 : 0, transition: "opacity 0.3s", fontFamily: "'JetBrains Mono', 'Fira Code', monospace", fontSize: "0.82rem", padding: "0.15rem 0", color: "#aaa" }}>
       <span style={{ color }}>{prefix} </span>
@@ -312,7 +320,7 @@ function ProjectDetail({ project }) {
 
       <div style={{ marginBottom: "1.5rem" }}>
         <div style={{ fontFamily: "monospace", fontSize: "0.65rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "#555", marginBottom: "0.7rem" }}>
-          // highlights
+          {/*// highlights*/}
         </div>
         {project.highlights.map((h, i) => (
           <div key={i} style={{ display: "flex", gap: "0.75rem", padding: "0.35rem 0", fontSize: "0.85rem", color: "#b0b0c0" }}>
@@ -324,7 +332,7 @@ function ProjectDetail({ project }) {
 
       <div>
         <div style={{ fontFamily: "monospace", fontSize: "0.65rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "#555", marginBottom: "0.7rem" }}>
-          // tech stack
+         {/*  // tech stack */}
         </div>
         <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem" }}>
           {project.stack.map((s) => (
@@ -661,7 +669,7 @@ export default function Portfolio() {
         color: "#444",
         position: "relative", zIndex: 1,
       }}>
-        <span style={{ color: "#60f0c0" }}>// </span>
+        <span style={{ color: "#60f0c0" }}>  </span>
         Vineela Yedlapalli · Backend Developer · Built with React
       </footer>
     </div>
