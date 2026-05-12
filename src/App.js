@@ -155,11 +155,10 @@ const DATA = {
       period: "Mar 2024 – Present",
       location: "India",
       bullets: [
-        "Enterprise banking mortgage applications — backend workflow and REST API validation",
-        "Built Java automation frameworks: Selenium WebDriver, TestNG, BDD Cucumber, POM",
-        "SQL-based DB validation + JSON API response analysis for business logic correctness",
-        "Full Agile lifecycle: requirement analysis, sprint planning, design discussions, defect resolution",
-        "CI/CD support via Jenkins for automated test runs and build validation",
+        "Worked on a banking application in the mortgage domain, developing Java-based utilities and automation components to support backend processing and data validation.",
+        "Wrote SQL queries and used Postman to validate REST APIs and troubleshoot business logic issues.",
+        "Analyzed requirements, debugged production and pre-release issues using logs and database analysis, and collaborated with developers to implement fixes.",
+        "Participated in deployment validation, release support, and Agile development activities while ensuring compliance with banking security standards.",
       ],
     },
     {
